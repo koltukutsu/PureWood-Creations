@@ -1,5 +1,37 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&env=COMPANY_NAME,SHOPIFY_REVALIDATION_SECRET,SHOPIFY_STORE_DOMAIN,SHOPIFY_STOREFRONT_ACCESS_TOKEN,SITE_NAME)
 
+## important
+
+https://ngrok.com/downloads/linux
+
+- ngrok config add-authtoken 2u3PhisVxNXzdDh3tWPqYEjOAuM_6yEEHrJP8N4qTHFPcRDJb
+- ngrok http 80
+- ngrok http http://localhost:8080
+
+### products
+
+- Only Active products are shown. Draft products will not be shown until they are marked as Active.
+
+- Active products can still be hidden and not seen by navigating the site, by adding a nextjs-frontend-hidden tag on the product. This tag will also tell search engines to not index or crawl the product, but the product will still be directly accessible by url. This feature allows "secret" products to only be accessed by people you share the url with.
+
+- Product options and option combinations are driven from Shopify options and variants. When selecting options on the product detail page, other option and variant combinations will be visually validated and verified for availability, like Amazon does.
+Products that are Active but no quantity remaining will still be displayed on the site, but will be marked as "out of stock". The ability to add the product to the cart is disabled.
+
+
+### collections
+**NOTE** collections are such things that they allow us to separeate the products into categories such as Kids, Toddlers, New-Borns and so on....
+
+- All available collections will show on the search page as filters on the left, with one exception.
+
+- Any collection names that start with the word hidden will not show up on the headless front end. Next.js Commerce comes pre-configured to look for two hidden collections. Collections were chosen for this over tags so that order of products could be controlled (collections allow for manual ordering).
+
+- Create the following collections:
+
+- Hidden: Homepage Featured Items — Products in this collection are displayed in the three featured blocks on the homepage.
+Hidden: Homepage Carousel — Products in this collection are displayed in the auto-scrolling carousel section on the homepage. 
+
+
+----
 # Next.js Commerce
 
 A high-performance, server-rendered Next.js App Router ecommerce application.
